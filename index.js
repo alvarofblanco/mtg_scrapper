@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers');
 
