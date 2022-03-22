@@ -13,5 +13,11 @@
     "axios": "0.26.1",
     "cheerio": "1.0.0-rc.10",
     "yargs": "17.4.0"
+  },
+  "devDependencies": {
+    "eslint": "8.11.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.25.4",
+    "jest": "27.5.1"
   }
 }
