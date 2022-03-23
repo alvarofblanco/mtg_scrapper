@@ -1,25 +1,22 @@
-/* eslint-disable no-console */
-const yargs = require('yargs');
-const { hideBin } = require('yargs/helpers');
+const debug = require('debug')('app');
+const express = require('express');
 
+const app = express();
 const { getCard } = require('./src/cardService');
-// TODO add tests
 
-(async () => {
-  const { argv } = yargs(hideBin(process.argv));
-  const cardName = argv.name;
-  let cardPrices;
+app.get('/', async (req, res) => {
+  const { cardName } = req.query;
+  debug('Card Name', cardName);
 
-  if (!cardName) {
-    console.log('No card name provided - terminating program');
-    return;
-  }
+  let arr;
 
   try {
-    cardPrices = await getCard(cardName);
+    arr = await getCard(cardName);
   } catch (e) {
-    console.error('Could not fetch card prices', e.message);
+    return res.status(500).json({ message: 'Sorry, an error ocurred', error: e.message });
   }
 
-  console.table(cardPrices);
-})();
+  return res.json({ message: `${cardName} OK`, prices: arr });
+});
+
+app.listen(3000, () => debug('App listening on port 3000'));
