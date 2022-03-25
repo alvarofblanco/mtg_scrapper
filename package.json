@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "17.x"
+  },
   "scripts": {
     "test": "jest --watchAll --verbose",
-    "dev": "DEBUG=app nodemon index.js"
+    "dev": "DEBUG=app PORT=3000 nodemon index.js",
+    "start": "DEBUG=app node index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +18,9 @@
     "axios": "0.26.1",
     "cheerio": "1.0.0-rc.10",
     "debug": "4.3.4",
+    "dotenv": "16.0.0",
     "express": "4.17.3",
+    "morgan": "1.10.0",
     "yargs": "17.4.0"
   },
   "devDependencies": {
