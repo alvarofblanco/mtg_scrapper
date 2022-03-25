@@ -1,1 +1,1 @@
-web: DEBUG=app node server.js
+web: DEBUG=app node index.js
